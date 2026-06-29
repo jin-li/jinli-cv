@@ -1,5 +1,6 @@
 .section--name {
     margin-bottom: 2.5rem;
+    position: relative;
 
     &.section--name--align-left {
         text-align: left;
@@ -11,5 +12,38 @@
 
     &.section--name--align-right {
         text-align: right;
+    }
+}
+
+.download-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 1rem;
+    font-size: 1.3rem;
+    color: $color-dark;
+    background: transparent;
+    border: 1px solid $color-secondary;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+        color: $color-primary;
+        border-color: $color-primary;
+    }
+
+    svg {
+        width: 1.6rem;
+        height: 1.6rem;
+    }
+}
+
+@media print {
+    .download-btn {
+        display: none;
     }
 }
