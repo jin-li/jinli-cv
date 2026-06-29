@@ -30,9 +30,9 @@
             {{ range $k, $v := . }}
                 {{ $existing := index $params $k }}
                 {{ if and (reflect.IsMap $existing) (reflect.IsMap $v) }}
-                    {{ $params = merge $params (dict $k (merge $existing $v)) }}
+                    {{ $params = merge $params (dict $k (merge $v $existing)) }}
                 {{ else }}
-                    {{ $params = merge $params (dict $k $v) }}
+                    {{ $params = merge (dict $k $v) $params }}
                 {{ end }}
             {{ end }}
         {{ end }}
