@@ -35,6 +35,7 @@
     {{ partial "head.html" . }}
 <body>
     <div class="content">
+        {{ partial "_download_button.html" (dict "showDownload" $params.showDownload "download_button" $params.download_button) }}
         {{ if $params.swapColumns }}
         <div class="content__left content__swapped__left">
         {{ else }}
