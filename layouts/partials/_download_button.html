@@ -1,6 +1,6 @@
 {{ $show := true }}
-{{ with .showDownload }}
-    {{ $show = . }}
+{{ if isset . "showDownload" }}
+    {{ $show = .showDownload }}
 {{ end }}
 {{ if $show }}
     {{ $position := "top_right" }}
