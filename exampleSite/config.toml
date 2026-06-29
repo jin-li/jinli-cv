@@ -27,6 +27,10 @@ colorRightColumnIconBackground = "#e3bfb8"
 pages = 2
 # Set this param to 'true' to swap the bar positions
 swapColumns = true
+# Show/hide the download button (top-right corner)
+showDownload = true
+# Button position: "top_right" or "top_left"
+download_button = "top_right"
 # Ordered sections for left column (regular section style)
 section_order = ["profile", "thesis", "experience", "projects", "research", "publications", "references"]
 # Ordered sections for right column (sideSection style)

@@ -30,6 +30,8 @@ For the original theme, see [Almeida CV](https://github.com/ineesalmeida/almeida
 - Better child spacing controls
 	- `child_margin` / `child_padding` now apply to list items as well
 - Fixed print behavior for long sections and publication lists
+- Download button for saving CV as PDF via browser print dialog
+- Proper print margins to prevent content from touching page edges
 
 ## Requirements
 
@@ -86,6 +88,7 @@ languageCode = "zh-cn"
 [params]
 section_order = ["profile", "experience", "projects", "thesis", "publications"]
 side_section_order = ["name", "avatar", "contacts", "education", "skills", "languages"]
+showDownload = false
 ```
 
 ### Global params
@@ -94,6 +97,9 @@ side_section_order = ["name", "avatar", "contacts", "education", "skills", "lang
 - Page layout:
 	- `[params.section]` / `[params.side_section]` for left/right column width, margin, padding
 	- `[params.content]` for page content margin/padding and right column offsets
+- Download button:
+	- `showDownload` (boolean): show or hide the download button. Default `true`.
+	- `download_button` (string): position of the button, `"top_right"` or `"top_left"`. Default `"top_right"`.
 
 Supported sections include:
 
@@ -181,6 +187,8 @@ Demo:
 - CV remains A4-printable.
 - Sections follow lead-content behavior similar to existing Experience/Education patterns.
 - Publications keeps heading + first item together in print while remaining items can flow.
+- A download button triggers the browser's print dialog where you can select "Save as PDF".
+- Print margins (0.5cm top/bottom) are automatically applied to prevent content from touching page edges.
 
 If your browser print misses backgrounds/badges, enable **Background Graphics** in print settings.
 

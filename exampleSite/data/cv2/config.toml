@@ -18,6 +18,7 @@ colorRightColumnIconPrimary = "#ffffff"
 colorRightColumnIconBackground = "#660874"
 footerNote = "2026 © CV Chinese"
 swapColumns = true
+showDownload = false
 
 section_order = ["profile", "experience", "education", "publications"]
 side_section_order = ["name", "avatar", "contacts", "skills", "languages"]
