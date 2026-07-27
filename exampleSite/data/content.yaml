@@ -5,7 +5,7 @@ Name:
   align: center
 
 Avatar:
-  Photo: img/avatar.png
+  Photo: https://avatarapi.runflare.run/public
 
 Contacts:
   - Icon: fas fa-phone
@@ -16,20 +16,6 @@ Contacts:
     Info: <a class="contact__link" href="https://jinli.io" target="_blank">jinli.io</a>
   - Icon: fas fa-map-marker-alt
     Info: United States
-
-BasicInfo:
-  FirstName: Jin
-  LastName: Li
-  Photo: img/avatar.png
-  Contacts:
-    - Icon: fas fa-phone
-      Info: +1 555 123 4567
-    - Icon: fas fa-envelope
-      Info: contact@jinli.io
-    - Icon: fas fa-globe
-      Info: <a class="contact__link" href="https://jinli.io" target="_blank">jinli.io</a>
-    - Icon: fas fa-map-marker-alt
-      Info: United States
 
 Profile: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
 
