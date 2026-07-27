@@ -1,5 +1,5 @@
 slug = "cv-zh"
-title = "CV Chinese"
+title = "锦鲤 - 中文简历"
 languageCode = "zh-cn"
 
 [params]
@@ -16,7 +16,7 @@ colorRightColumnHeadingText = "#444444"
 colorRightColumnBodyText = "#555555"
 colorRightColumnIconPrimary = "#ffffff"
 colorRightColumnIconBackground = "#660874"
-footerNote = "2026 © CV Chinese"
+footerNote = "2026 © 锦鲤   |   jinli.io"
 swapColumns = true
 showDownload = false
 

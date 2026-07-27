@@ -1,35 +1,35 @@
 Name:
-  first: Inês
-  last: Almeida
+  first: Jin
+  last: Li
   order: first_last
   align: center
 
 Avatar:
-  Photo: img/avatar.jpg
+  Photo: img/avatar.png
 
 Contacts:
   - Icon: fas fa-phone
-    Info: +44 123 456 789
+    Info: +1 555 123 4567
   - Icon: fas fa-envelope
-    Info: contact@ines-almeida.com
+    Info: contact@jinli.io
   - Icon: fas fa-globe
-    Info: <a class="contact__link" href="https://ines-almeida.com" target="_blank">ines-almeida.com</a>
+    Info: <a class="contact__link" href="https://jinli.io" target="_blank">jinli.io</a>
   - Icon: fas fa-map-marker-alt
-    Info: Portugal
+    Info: United States
 
 BasicInfo:
-  FirstName: Inês
-  LastName: Almeida
-  Photo: img/avatar.jpg
+  FirstName: Jin
+  LastName: Li
+  Photo: img/avatar.png
   Contacts:
     - Icon: fas fa-phone
-      Info: +44 123 456 789
+      Info: +1 555 123 4567
     - Icon: fas fa-envelope
-      Info: contact@ines-almeida.com
+      Info: contact@jinli.io
     - Icon: fas fa-globe
-      Info: <a class="contact__link" href="https://ines-almeida.com" target="_blank">ines-almeida.com</a>
+      Info: <a class="contact__link" href="https://jinli.io" target="_blank">jinli.io</a>
     - Icon: fas fa-map-marker-alt
-      Info: Portugal
+      Info: United States
 
 Profile: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
 
@@ -176,18 +176,6 @@ Languages:
     Level: B1
   - Name: German
     Level: B1
-
-Diplomas:
-  - Degree: PhD
-    Year: 2025
-    University: University of Cambridge
-    Location: Cambridge, UK
-    Major: Electrical Engineering and Computer Science
-  - Degree: Bachelor
-    Year: 2020
-    University: Harvard University
-    Location: Cambridge, USA
-    Major: Computer Science
 
 Interests:
   - Bouldering

@@ -1,17 +1,17 @@
 Name:
-  first: 三
-  last: 张
+  first: 鲤
+  last: 锦
   order: last_first
   align: center
 
 Avatar:
-  Photo: ../img/avatar.jpg
+  Photo: ../img/avatar.png
 
 Contacts:
   - Icon: fas fa-envelope
-    Info: demo@example.com
+    Info: contact@jinli.io
   - Icon: fas fa-globe
-    Info: <a class="contact__link" href="https://example.com" target="_blank">example.com</a>
+    Info: <a class="contact__link" href="https://jinli.io" target="_blank">jinli.io</a>
 
 Profile: 中文个人简介示例
 
@@ -44,7 +44,7 @@ Languages:
     Level: 雅思 7.5
 
 Publications:
-  - Authors: 张三, 李四
+  - Authors: 锦鲤, 李四
     Title: 一篇关于计算机科学的论文
     URL: https://example.com/publication
     Publisher: 计算机科学会议

@@ -1,15 +1,15 @@
-# Almeida CV Theme (Fork)
+# Jinli CV Theme
 
-Printable HTML/CSS CV template based on the original Almeida theme, extended in this fork with multi-CV routing, per-CV language/style control, and new data sections.
+Printable HTML/CSS CV template based on the original Almeida theme by Inês Almeida, extended in this fork with multi-CV routing, per-CV language/style control, and new data sections.
 
-![Main Demo](images/screenshot-fork.png)
+![Main Demo](images/screenshot-jinli-cv.png)
 
 Demo site:
-- Default page: [https://almeida-cv-demo.netlify.app/](https://almeida-cv-demo.netlify.app/)
-- German CV: [https://almeida-cv-demo.netlify.app/cv-de/](https://almeida-cv-demo.netlify.app/cv-de/)
-- Chinese CV: [https://almeida-cv-demo.netlify.app/cv-zh/](https://almeida-cv-demo.netlify.app/cv-zh/)
+- Default page: [https://jinli-cv-demo.netlify.app/](https://jinli-cv-demo.netlify.app/)
+- German CV: [https://jinli-cv-demo.netlify.app/cv-de/](https://jinli-cv-demo.netlify.app/cv-de/)
+- Chinese CV: [https://jinli-cv-demo.netlify.app/cv-zh/](https://jinli-cv-demo.netlify.app/cv-zh/)
 
-For the original theme, see [Almeida CV](https://github.com/ineesalmeida/almeida-cv).
+This project is a derivative of [Almeida CV](https://github.com/ineesalmeida/almeida-cv) by Inês Almeida (MIT License). Fork maintained at [jin-li/jinli-cv](https://github.com/jin-li/jinli-cv).
 
 ## What this fork adds
 
@@ -212,7 +212,8 @@ Create `assets/scss/_custom.scss` in your site root to override style details.
 
 ## Credits
 
-- Original theme: https://github.com/ineesalmeida/almeida-cv
+- Original theme: [Almeida CV](https://github.com/ineesalmeida/almeida-cv) by Inês Almeida (MIT License)
+- Fork: [jin-li/jinli-cv](https://github.com/jin-li/jinli-cv) by Jin Li
 
 ## Contributing
 

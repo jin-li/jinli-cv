@@ -12,7 +12,7 @@
 
 {{- range $candidate := $candidates -}}
     {{- if not $result -}}
-        {{- $paths := slice (printf "i18n/%s.toml" $candidate) (printf "themes/almeida-cv/i18n/%s.toml" $candidate) -}}
+        {{- $paths := slice (printf "i18n/%s.toml" $candidate) (printf "themes/jinli-cv/i18n/%s.toml" $candidate) -}}
         {{- range $path := $paths -}}
             {{- if and (not $result) (fileExists $path) -}}
                 {{- $translations := transform.Unmarshal (readFile $path) -}}

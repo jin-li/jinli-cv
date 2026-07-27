@@ -1,5 +1,5 @@
 slug = "cv-de"
-title = "CV German"
+title = "Jin Li - CV German"
 languageCode = "de"
 
 [params]
@@ -17,7 +17,7 @@ colorRightColumnBodyText = "#555555"
 colorRightColumnIconPrimary = "#ffffff"
 colorRightColumnIconBackground = "#c9a56a"
 pages = 2
-footerNote = "2026 © CV German"
+footerNote = "2026 © Jin Li   |   jinli.io"
 swapColumns = true
 
 section_order = ["profile", "thesis", "experience", "education", "publications"]

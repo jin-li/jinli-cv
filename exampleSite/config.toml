@@ -3,11 +3,11 @@ defaultContentLanguage = "en"
 enableRobotsTXT = true
 enableEmoji = true
 
-theme = "almeida-cv"
+theme = "jinli-cv"
 disableKinds = ["section", "taxonomy", "term", "RSS", "sitemap"]
 
 baseURL = "https://example.com/"
-title = "Example - CV"
+title = "Jin Li - CV"
 #googleAnalytics = ""
 
 [params]
@@ -35,7 +35,7 @@ download_button = "top_right"
 section_order = ["profile", "thesis", "experience", "projects", "research", "publications", "references"]
 # Ordered sections for right column (sideSection style)
 side_section_order = ["avatar", "name", "contacts", "diplomas", "skills", "interests"]
-footerNote = "2020 © by Inês Almeida   |   ines-almeida.com"
+footerNote = "2026 © Jin Li   |   jinli.io"
 
 # Left column (content__left) defaults and sizing
 [params.section]
