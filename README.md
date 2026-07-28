@@ -1,220 +1,610 @@
 # Jinli CV Theme
 
-Printable HTML/CSS CV template based on the original Almeida theme by Inês Almeida, extended in this fork with multi-CV routing, per-CV language/style control, and new data sections.
+Printable HTML/CSS CV template based on the original [Almeida CV](https://github.com/ineesalmeida/almeida-cv) by Inês Almeida (MIT License), extended with multi-CV routing, per-CV language/style control, and new data sections.
 
 ![Main Demo](images/screenshot-jinli-cv.png)
 
-Demo site:
+**Demo site:**
 - Default page: [https://jinli-cv-demo.netlify.app/](https://jinli-cv-demo.netlify.app/)
 - German CV: [https://jinli-cv-demo.netlify.app/cv-de/](https://jinli-cv-demo.netlify.app/cv-de/)
 - Chinese CV: [https://jinli-cv-demo.netlify.app/cv-zh/](https://jinli-cv-demo.netlify.app/cv-zh/)
 
 This project is a derivative of [Almeida CV](https://github.com/ineesalmeida/almeida-cv) by Inês Almeida (MIT License). Fork maintained at [jin-li/jinli-cv](https://github.com/jin-li/jinli-cv).
 
+---
+
 ## What this fork adds
 
-- Multi-CV support from `data/<cv-folder>/` with per-CV route by `slug`
-- Per-CV `languageCode` for section labels and page language
-- Flexible section ordering via `section_order` and `side_section_order` params
-- Per-CV theme/layout overrides (colors, column sizes, spacing, section order)
-- New `Publications` section
-	- Linked/italic title support
-	- Single timeline-style gradient line in front of list
-	- Bullet list styling and print-friendly behavior
-- New `Projects` section
-	- Experience-like visual style
-	- Gradient guide line in front of each project's details list
-	- Topic, details, and optional badges support
-- New `Thesis` section
-	- Experience-like visual style (timeline, place icon, bullets, badges)
+- **Multi-CV support** from `data/<cv-folder>/` with per-CV route by `slug`
+- **Per-CV `languageCode`** for section labels and page language
+- **Flexible section ordering** via `section_order` and `side_section_order` params
+- **Per-CV theme/layout overrides** (colors, column sizes, spacing, section order)
+- New **`Publications`** section
+  - Linked/italic title support
+  - Single timeline-style gradient line in front of list
+  - Bullet list styling and print-friendly behavior
+- New **`Projects`** section
+  - Experience-like visual style
+  - Gradient guide line in front of each project's details list
+  - Topic, details, and optional badges support
+- New **`Thesis`** section
+  - Experience-like visual style (timeline, place icon, bullets, badges)
 - Better child spacing controls
-	- `child_margin` / `child_padding` now apply to list items as well
+  - `child_margin` / `child_padding` now apply to list items as well
 - Fixed print behavior for long sections and publication lists
 - Download button for saving CV as PDF via browser print dialog
 - Proper print margins to prevent content from touching page edges
 
-## Requirements
+---
 
-- Hugo (recommended latest)
+## Quick Start (Local Development)
+
+### Prerequisites
+
+- **Hugo Extended** (v0.110.0 or later recommended)
 - See install docs: https://gohugo.io/getting-started/installing/
 
-## Quick start
+### Option 1: Run the example site (recommended for testing)
 
 ```bash
+# Clone this repo
+git clone https://github.com/jin-li/jinli-cv.git
+cd jinli-cv
+
+# Start the example site
+cd exampleSite
 hugo server -D
 ```
 
-Site runs at `http://localhost:1313/`.
+Site runs at `http://localhost:1313/`. This uses the theme from the parent directory.
 
-Build static output:
+### Option 2: Create your own site from scratch
 
 ```bash
-hugo --cleanDestinationDir
+# 1. Create a new Hugo site
+hugo new site my-cv
+cd my-cv
+
+# 2. Initialize git
+git init
+
+# 3. Add this theme as a git submodule
+git submodule add https://github.com/jin-li/jinli-cv.git themes/jinli-cv
+
+# 4. Copy the example site content to your site root
+cp -r themes/jinli-cv/exampleSite/* .
+
+# 5. (Optional) Remove the example git tracking
+rm -rf .git
+
+# 6. Start the dev server
+hugo server -D
 ```
 
-## Multi-CV data model
-
-This fork generates one CV page per folder under `data/` that contains both:
-
-- `config.toml`
-- `content.yaml`
-
-Example:
-
-```text
-data/
-	content.yaml                 # default homepage CV data
-	cv1/
-		config.toml               # slug/title/language + params overrides
-		content.yaml              # CV content
-	cv2/
-		config.toml
-		content.yaml
+Your site structure will look like:
+```
+my-cv/
+├── config.toml              # Your site config
+├── content/
+│   └── _content.gotmpl      # Dynamic CV page generator
+├── data/
+│   ├── content.yaml         # Default CV (homepage)
+│   ├── cv-de/
+│   │   ├── config.toml
+│   │   └── content.yaml
+│   └── cv-zh/
+│       ├── config.toml
+│       └── content.yaml
+├── static/
+│   └── img/
+│       └── avatar.png
+└── themes/
+    └── jinli-cv/            # Theme submodule
 ```
 
-`slug` in each `data/<cv>/config.toml` controls the URL path:
+---
 
-- `slug = "cv-zh"` -> `/cv-zh/`
+## Customizing Your CV
 
-## Per-CV config
+### 1. Edit the default CV (homepage)
 
-In `data/<cv>/config.toml`:
+Edit `data/content.yaml` with your information. See the example in `themes/jinli-cv/exampleSite/data/content.yaml` for all available fields.
 
+**Key sections:**
+```yaml
+Name:
+  first: Your
+  last: Name
+  order: first_last      # or last_first
+  align: center          # left, center, right
+
+Avatar:
+  Photo: https://your-avatar-url.com/photo.jpg
+
+Contacts:
+  - Icon: fas fa-envelope
+    Info: your@email.com
+  - Icon: fas fa-globe
+    Info: <a class="contact__link" href="https://your-site.com" target="_blank">your-site.com</a>
+
+Profile: "Your professional summary..."
+
+Experience:
+  - Employer: Company Name
+    Place: City, Country
+    Positions:
+      - Title: Senior Developer
+        Date: 2022 - Present
+        Details:
+          - Achievement 1
+          - Achievement 2
+        Badges: ["Go", "Docker", "Kubernetes"]
+
+Education:
+  - Course: MSc Computer Science
+    Institution: University Name
+    Date: 2020 - 2022
+    Details:
+      - Thesis: "Your Thesis Title"
+```
+
+### 2. Add additional CVs (multi-language, different versions)
+
+Create a folder under `data/` for each CV:
+
+```bash
+mkdir -p data/cv-de data/cv-fr
+```
+
+Each folder needs **two files**:
+
+**`data/cv-de/config.toml`**:
 ```toml
-slug = "cv-zh"
-title = "CV Chinese"
-languageCode = "zh-cn"
+slug = "cv-de"
+title = "Lebenslauf"
+languageCode = "de"
 
 [params]
-section_order = ["profile", "experience", "projects", "thesis", "publications"]
-side_section_order = ["name", "avatar", "contacts", "education", "skills", "languages"]
-showDownload = false
+# Override any global params for this CV
+section_order = ["profile", "experience", "projects", "education", "skills"]
+side_section_order = ["avatar", "name", "contacts", "languages", "interests"]
+showDownload = true
+download_button = "top_right"
 ```
 
-### Global params
+**`data/cv-de/content.yaml`**:
+```yaml
+Name:
+  first: Dein
+  last: Name
+  order: first_last
+  align: center
 
-- Global style tokens: `colorLight`, `colorDark`, `colorPrimary`, etc.
-- Page layout:
-	- `[params.section]` / `[params.side_section]` for left/right column width, margin, padding
-	- `[params.content]` for page content margin/padding and right column offsets
-- Download button:
-	- `showDownload` (boolean): show or hide the download button. Default `true`.
-	- `download_button` (string): position of the button, `"top_right"` or `"top_left"`. Default `"top_right"`.
+Avatar:
+  Photo: https://your-avatar-url.com/photo.jpg
 
-Supported sections include:
+Contacts:
+  - Icon: fas fa-envelope
+    Info: dein@email.de
 
-- `name`, `profile`, `experience`, `projects`, `thesis`, `education`, `publications`, `references`
-- `avatar`, `contacts`, `skills`, `languages`, `diplomas`, `interests`
+Profile: "Dein professionelles Profil auf Deutsch..."
 
-### Per-Section params
+Experience:
+  - Employer: Firmenname
+    Place: Berlin, Deutschland
+    Positions:
+      - Title: Senior Entwickler
+        Date: 2022 - Heute
+        Details:
+          - Erfolg 1
+          - Erfolg 2
+        Badges: ["Go", "Docker", "Kubernetes"]
+```
 
-- Per-section spacing:
-	- `[params.<section>]` with `margin`, `padding`, `child_margin`, `child_padding`
-- Override section title display with `[params.<section>.display_name]` 
+### 3. Replace the avatar
 
-Example:
-		
+Replace `static/img/avatar.png` with your own photo (recommended: square, ~400x400px).
+
+### 4. Customize colors and layout
+
+Edit `config.toml` under `[params]` to override theme defaults:
+
 ```toml
-[params.publications]
-display_name = "Journal/Conference Publications"
-margin = "0 0 2rem 0"
-padding = "0 0 0 0"
-child_margin = "0 0 0 0"
-child_padding = "0 0 0 0"
+[params]
+colorPrimary = "#your-brand-color"
+colorLight = "#fff"
+colorDark = "#333"
+colorPageBackground = "#f5f5f5"
+# ... see exampleSite/config.toml for all options
 ```
 
-## Content schema additions
+### 5. Add custom SCSS (advanced)
 
-### Publications
+Create `assets/scss/_custom.scss` in your site root:
+
+```scss
+// Override theme variables
+$color-primary: #your-color;
+$font-family-base: 'Your Font', sans-serif;
+
+// Custom styles
+.your-custom-class {
+  // ...
+}
+```
+
+---
+
+## Building for Production
+
+```bash
+# Clean build
+hugo --cleanDestinationDir --minify
+
+# Output will be in ./public/
+# Deploy the contents of public/ to your hosting provider
+```
+
+---
+
+## Deployment Guides
+
+### 🌐 Deploy to Netlify (Recommended - Free Tier)
+
+**Option A: Connect your Git repo (easiest)**
+
+1. Push your site to a Git repo (GitHub, GitLab, Bitbucket)
+2. Go to [Netlify](https://app.netlify.com/) → **Add new site** → **Import an existing project**
+3. Select your repo
+4. Configure build settings:
+   - **Base directory**: Leave empty (or `themes/jinli-cv/exampleSite` if you cloned the theme repo directly)
+   - **Build command**: `hugo --minify` (or `hugo --gc --minify`)
+   - **Publish directory**: `public`
+5. Add environment variable: `HUGO_VERSION = 0.146.5` (or your preferred version)
+6. Click **Deploy site**
+
+**Option B: Use `netlify.toml` (recommended for reproducibility)**
+
+Create `netlify.toml` in your site root:
+
+```toml
+[build]
+  command = "hugo --minify"
+  publish = "public"
+
+[build.environment]
+  HUGO_VERSION = "0.146.5"
+
+# Optional: redirect www to non-www
+[[redirects]]
+  from = "https://www.yourdomain.com/*"
+  to = "https://yourdomain.com/:splat"
+  status = 301
+  force = true
+```
+
+**If using the theme as a submodule**, add this to `netlify.toml`:
+
+```toml
+[build]
+  command = "git submodule update --init --recursive && hugo --minify"
+  publish = "public"
+```
+
+Netlify will automatically:
+- Clone your repo
+- Initialize submodules (fetches the theme)
+- Run Hugo build
+- Deploy to `https://your-site.netlify.app`
+- Set up continuous deployment on every git push
+
+**Custom domain:** Netlify DNS → Add custom domain → Follow verification steps.
+
+---
+
+### 🐙 Deploy to GitHub Pages (Free)
+
+**Option A: GitHub Actions (recommended)**
+
+Create `.github/workflows/hugo.yml`:
 
 ```yaml
-Publications:
-	- Authors: Alice, Bob
-		Title: Another Research Paper
-		URL: https://example.com/publication
-		Publisher: International Journal of Computer Science
-		Year: 2023
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive  # Important for theme submodule
+          fetch-depth: 0
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.146.5'
+          extended: true
+
+      - name: Build
+        run: hugo --minify --gc
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
 ```
 
-Render style:
+Then in your repo settings:
+1. Go to **Settings** → **Pages**
+2. **Source**: "GitHub Actions"
+3. Your site will be at `https://yourusername.github.io/your-repo-name/`
 
-- `Authors. "Title" Publisher (Year)`
-- Title is italic
-- Title is underlined when `URL` is present
+**Option B: Manual deploy with `gh-pages` branch**
 
-Demo:
+```bash
+# Build
+hugo --minify --gc
 
-![Publications section](images/publications.png)
-
-### Projects
-
-```yaml
-Projects:
-	- Topic: A Wonderful Research Project
-		Details:
-			- Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-			- Ut enim ad minim veniam, quis nostrud exercitation.
-		Badges: [keyword1, keyword2, keyword3]
+# Deploy to gh-pages branch
+cd public
+git init
+git add .
+git commit -m "Deploy"
+git push -f https://github.com/yourusername/your-repo.git master:gh-pages
 ```
 
-Demo:
+---
 
-![Projects section](images/projects.png)
+### ☁️ Deploy to Cloudflare Pages (Free)
 
-### Thesis
+1. Go to [Cloudflare Pages](https://pages.cloudflare.com/) → **Create a project**
+2. Connect your Git repo
+3. Build settings:
+   - **Build command**: `hugo --minify`
+   - **Build output directory**: `public`
+   - **Root directory**: Leave empty (or set if using subfolder)
+4. Environment variables: `HUGO_VERSION = 0.146.5`
+5. Deploy!
 
-```yaml
-Thesis:
-  - Title: My Awesome Thesis
-    Category: PhD
-    Place: University of Oxford
-    Advisor: Prof. John Doe
-    Date: May 2023
-    Details:
-      - "Thesis title: <em> My Awesome Thesis Title</em>"
-      - "Abstract: Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-      - "Key contributions: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt"
-      - "Highlights: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-    Badges: ["keyword1", "keyword2", "keyword3"]
+---
+
+### 🚀 Deploy to Vercel (Free Tier)
+
+1. Go to [Vercel](https://vercel.com/) → **Add New Project**
+2. Import your Git repo
+3. Framework preset: **Hugo**
+4. Build settings:
+   - **Build Command**: `hugo --minify`
+   - **Output Directory**: `public`
+5. Deploy!
+
+---
+
+### 🐳 Deploy with Docker (Any VPS/Cloud)
+
+**Dockerfile:**
+```dockerfile
+FROM klakegg/hugo:0.146.5-ext AS builder
+WORKDIR /src
+COPY . .
+RUN hugo --minify
+
+FROM nginx:alpine
+COPY --from=builder /src/public /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
 ```
 
-Demo:
+**nginx.conf:**
+```nginx
+server {
+    listen 80;
+    server_name localhost;
+    root /usr/share/nginx/html;
+    index index.html;
 
-![Thesis section](images/thesis.png)
+    location / {
+        try_files $uri $uri/ =404;
+    }
 
-## Print behavior notes
+    # Enable gzip
+    gzip on;
+    gzip_types text/css application/javascript;
 
-- CV remains A4-printable.
-- Sections follow lead-content behavior similar to existing Experience/Education patterns.
-- Publications keeps heading + first item together in print while remaining items can flow.
-- A download button triggers the browser's print dialog where you can select "Save as PDF".
-- Print margins (0.5cm top/bottom) are automatically applied to prevent content from touching page edges.
+    # Cache static assets
+    location ~* \.(css|js|png|jpg|jpeg|gif|ico|svg|woff|woff2)$ {
+        expires 1y;
+        add_header Cache-Control "public, immutable";
+    }
+}
+```
 
-If your browser print misses backgrounds/badges, enable **Background Graphics** in print settings.
+Build and run:
+```bash
+docker build -t my-cv .
+docker run -p 8080:80 my-cv
+```
 
-## i18n
+---
 
-Section labels are translated via `i18n/*.toml`.
+## Multi-CV Routing Details
 
-This fork currently includes thesis/publications/projects labels in:
+The theme automatically generates pages for each folder in `data/` that contains both `config.toml` and `content.yaml`.
 
-- `i18n/en.toml` for English
-- `i18n/de.toml` for German
-- `i18n/es.toml` for Spanish
-- `i18n/eo.toml` for Esperanto
-- `i18n/fr.toml` for French
-- `i18n/pl.toml` for Polish
-- `i18n/zh-cn.toml` for Simplified Chinese
+| Folder | `slug` in config.toml | URL |
+|--------|----------------------|-----|
+| `data/` (root) | N/A | `/` (homepage) |
+| `data/cv-de/` | `cv-de` | `/cv-de/` |
+| `data/cv-zh/` | `cv-zh` | `/cv-zh/` |
+| `data/cv-fr/` | `cv-fr` | `/cv-fr/` |
 
-## Advanced customization
+### Per-CV Configuration
 
-Create `assets/scss/_custom.scss` in your site root to override style details.
+Each `data/<cv>/config.toml` can override:
 
-## Credits
+```toml
+slug = "cv-fr"           # Required: URL path
+title = "CV Français"    # Page title
+languageCode = "fr"      # i18n language code
 
-- Original theme: [Almeida CV](https://github.com/ineesalmeida/almeida-cv) by Inês Almeida (MIT License)
-- Fork: [jin-li/jinli-cv](https://github.com/jin-li/jinli-cv) by Jin Li
+[params]
+# Any global param can be overridden per-CV
+section_order = [...]
+side_section_order = [...]
+showDownload = true
+colorPrimary = "#different-color"
+# ... etc
+```
+
+---
+
+## Print / PDF Export
+
+The theme is designed for **A4 printing**:
+
+1. Open your CV in browser
+2. Press `Ctrl+P` (or `Cmd+P` on Mac)
+3. Settings:
+   - **Paper size**: A4
+   - **Margins**: None / Default (0.5cm top/bottom are built-in)
+   - **Background graphics**: **Enabled** (required for badges, gradients)
+   - **Scale**: 100%
+
+Click **Save as PDF** to generate a print-ready PDF.
+
+---
+
+## i18n (Translations)
+
+Section labels are translated via `i18n/*.toml`. Current languages:
+
+| Code | Language | File |
+|------|----------|------|
+| `en` | English | `i18n/en.toml` |
+| `de` | German | `i18n/de.toml` |
+| `es` | Spanish | `i18n/es.toml` |
+| `eo` | Esperanto | `i18n/eo.toml` |
+| `fr` | French | `i18n/fr.toml` |
+| `pl` | Polish | `i18n/pl.toml` |
+| `zh-cn` | Simplified Chinese | `i18n/zh-cn.toml` |
+
+To add a language:
+1. Copy `i18n/en.toml` to `i18n/your-code.toml`
+2. Translate all values
+3. Use `languageCode = "your-code"` in your CV config
+
+---
+
+## Theme Structure
+
+```
+jinli-cv/
+├── assets/
+│   └── scss/              # SCSS source files
+├── exampleSite/           # Complete example site
+│   ├── config.toml
+│   ├── content/
+│   ├── data/
+│   └── static/
+├── i18n/                  # Translation files
+├── images/                # Screenshots for README
+├── layouts/
+│   ├── cv/                # CV page templates
+│   ├── partials/          # Reusable partials
+│   └── _default/          # Base templates
+├── static/                # Static assets (fonts, etc.)
+├── theme.toml             # Theme metadata
+└── LICENSE                # MIT License
+```
+
+---
+
+## Troubleshooting
+
+### Hugo version issues
+```bash
+# Check version
+hugo version
+
+# Install specific version (macOS)
+brew install hugo@0.146.5
+
+# Or download from https://github.com/gohugoio/hugo/releases
+```
+
+### Submodule not initialized on Netlify/Vercel
+Ensure your build command includes submodule init:
+```toml
+# netlify.toml
+[build]
+  command = "git submodule update --init --recursive && hugo --minify"
+```
+
+### Theme not found error
+If you see `module "jinli-cv" not found`, add to your `config.toml`:
+```toml
+themesDir = "themes"
+theme = "jinli-cv"
+```
+
+### Print styles not working
+- Enable **Background graphics** in print dialog
+- Check browser print preview matches screen
+- Ensure `hugo --minify` doesn't strip critical CSS (it shouldn't)
+
+---
 
 ## Contributing
 
-Issues and pull requests are welcome.
+1. Fork the repo
+2. Create a feature branch: `git checkout -b feature/my-feature`
+3. Commit changes: `git commit -am 'Add my feature'`
+4. Push: `git push origin feature/my-feature`
+5. Open a Pull Request
+
+Issues and pull requests are welcome!
+
+---
+
+## Credits
+
+- **Original theme**: [Almeida CV](https://github.com/ineesalmeida/almeida-cv) by Inês Almeida (MIT License)
+- **Fork & extensions**: [jin-li/jinli-cv](https://github.com/jin-li/jinli-cv) by Jin Li
+- **Fonts**: Oswald, Roboto, Material Icons, Font Awesome
+
+---
+
+## License
+
+MIT License - see [LICENSE](LICENSE) for details.
+
+Copyright (c) 2020 Inês Almeida
+Copyright (c) 2024-2026 Jin Li
