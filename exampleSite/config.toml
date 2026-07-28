@@ -3,6 +3,7 @@ defaultContentLanguage = "en"
 enableRobotsTXT = true
 enableEmoji = true
 
+themesDir = "../../../themes"
 theme = "jinli-cv"
 disableKinds = ["section", "taxonomy", "term", "RSS", "sitemap"]
 
