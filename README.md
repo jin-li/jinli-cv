@@ -46,17 +46,42 @@ This project is a derivative of [Almeida CV](https://github.com/ineesalmeida/alm
 
 ### Option 1: Run the example site (recommended for testing)
 
+The example site needs the theme to be in a `./themes/jinli-cv` folder. Use one of these methods:
+
+**Method A: Using symlink (simplest)**
+
 ```bash
 # Clone this repo
 git clone https://github.com/jin-li/jinli-cv.git
-cd jinli-cv
+cd jinli-cv/exampleSite
+
+# Create themes dir and link to theme
+mkdir -p themes
+ln -s ../ themes/jinli-cv
 
 # Start the example site
-cd exampleSite
 hugo server -D
 ```
 
-Site runs at `http://localhost:1313/`. This uses the theme from the parent directory.
+**Method B: Copy exampleSite out (recommended for customization)**
+
+```bash
+git clone https://github.com/jin-li/jinli-cv.git
+cd jinli-cv
+
+# Create a new folder and copy exampleSite content
+mkdir -p ../my-cv
+cd ../my-cv
+cp -r ../jinli-cv/exampleSite/* .
+
+# Make sure the theme subfolder exists
+mkdir -p themes
+ln -s ../jinli-cv themes/jinli-cv
+
+hugo server -D
+```
+
+Site runs at `http://localhost:1313/`.
 
 ### Option 2: Create your own site from scratch
 
