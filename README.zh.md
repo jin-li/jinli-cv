@@ -1,6 +1,6 @@
-# Jinli CV 主题
+# 锦鲤简历主题
 
-基于 Inês Almeida 原创的 [Almeida CV](https://github.com/ineesalmeida/almeida-cv)（MIT 许可证），扩展了多 CV 路由、单 CV 语言/样式控制和新的数据板块的可打印 HTML/CSS CV/简历模板。
+基于 Inês Almeida 原创的 [Almeida CV](https://github.com/ineesalmeida/almeida-cv)（MIT 许可证），扩展了多 CV 路由、单 CV 语言/样式控制和新的数据板块的可打印 HTML/CSS 简历模板。
 
 ![主页演示](images/screenshot-jinli-cv.png)
 
@@ -9,7 +9,7 @@
 - 德语 CV: [https://jinli-cv-demo.netlify.app/cv-de/](https://jinli-cv-demo.netlify.app/cv-de/)
 - 中文 CV: [https://jinli-cv-demo.netlify.app/cv-zh/](https://jinli-cv-demo.netlify.app/cv-zh/)
 
-本项目是 [Almeida CV](https://github.com/ineesalmeida/almeida-cv) by Inês Almeida (MIT 许可证) 的衍生作品。由 [jin-li/jinli-cv](https://github.com/jin-li/jinli-cv) 维护。
+本项目是 [Almeida CV](https://github.com/ineesalmeida/almeida-cv) by Inês Almeida (MIT 许可证) 的衍生作品，由 [jin-li/jinli-cv](https://github.com/jin-li/jinli-cv)（锦鲤简历）维护。
 
 ---
 
@@ -602,7 +602,7 @@ theme = "jinli-cv"
 ## 致谢
 
 - **原始主题**：[Almeida CV](https://github.com/ineesalmeida/almeida-cv) 由 Inês Almeida 创作 (MIT 许可证)
-- **当前主题**：[jin-li/jinli-cv](https://github.com/jin-li/jinli-cv) 由 Jin Li 维护 (MIT 许可证)
+- **当前主题**：[锦鲤简历](https://github.com/jin-li/jinli-cv) 由 Jin Li 维护 (MIT 许可证)
 - **字体**：Oswald、Roboto、Material Icons、Font Awesome
 
 ---

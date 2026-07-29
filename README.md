@@ -1,4 +1,4 @@
-# Jinli CV Theme
+# Jinli CV Theme (锦鲤简历)
 
 Printable HTML/CSS CV template based on the original [Almeida CV](https://github.com/ineesalmeida/almeida-cv) by Inês Almeida (MIT License), extended with multi-CV routing, per-CV language/style control, and new data sections.
 
@@ -602,7 +602,7 @@ Issues and pull requests are welcome!
 ## Credits
 
 - **Original theme**: [Almeida CV](https://github.com/ineesalmeida/almeida-cv) by Inês Almeida (MIT License)
-- **Fork & extensions**: [jin-li/jinli-cv](https://github.com/jin-li/jinli-cv) by Jin Li
+- **Fork & extensions**: [jin-li/jinli-cv](https://github.com/jin-li/jinli-cv) (a.k.a. 锦鲤简历) by Jin Li
 - **Fonts**: Oswald, Roboto, Material Icons, Font Awesome
 
 ---
