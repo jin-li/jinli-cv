@@ -1,6 +1,10 @@
 # Jinli CV Theme (锦鲤简历)
 
+> **语言切换 / Language Switch**: [English](README.md) | [简体中文](README.zh.md)
+
 Printable HTML/CSS CV template based on the original [Almeida CV](https://github.com/ineesalmeida/almeida-cv) by Inês Almeida (MIT License), extended with multi-CV routing, per-CV language/style control, and new data sections.
+
+**Live Demo:** [https://jinli-cv-demo.netlify.app/](https://jinli-cv-demo.netlify.app/) — powered by the [cv-demo repository](https://github.com/jin-li/cv-demo).
 
 ![Main Demo](images/screenshot-jinli-cv.png)
 

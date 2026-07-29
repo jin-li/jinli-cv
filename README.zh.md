@@ -1,5 +1,7 @@
 # 锦鲤简历主题
 
+> **语言切换 / Language Switch**: [English](README.md) | [简体中文](README.zh.md)
+
 基于 Inês Almeida 原创的 [Almeida CV](https://github.com/ineesalmeida/almeida-cv)（MIT 许可证），扩展了多 CV 路由、单 CV 语言/样式控制和新的数据板块的可打印 HTML/CSS 简历模板。
 
 ![主页演示](images/screenshot-jinli-cv.png)
@@ -8,6 +10,8 @@
 - 默认页面: [https://jinli-cv-demo.netlify.app/](https://jinli-cv-demo.netlify.app/)
 - 德语 CV: [https://jinli-cv-demo.netlify.app/cv-de/](https://jinli-cv-demo.netlify.app/cv-de/)
 - 中文 CV: [https://jinli-cv-demo.netlify.app/cv-zh/](https://jinli-cv-demo.netlify.app/cv-zh/)
+
+在线演示由 [cv-demo 仓库](https://github.com/jin-li/cv-demo) 提供支持。
 
 本项目是 [Almeida CV](https://github.com/ineesalmeida/almeida-cv) by Inês Almeida (MIT 许可证) 的衍生作品，由 [jin-li/jinli-cv](https://github.com/jin-li/jinli-cv)（锦鲤简历）维护。
 
